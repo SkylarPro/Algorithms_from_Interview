@@ -21,18 +21,22 @@ answer = []
 count = 0
 #N
 for i, j in zip(arr1, arr2):
-    if (i, False) in hashh:
+    if (i, False) in hashh and hashh[(i, False)] > 0:
         count += 1
         answer.append(count)
+        hashh[(i, False)]-=1
         continue
     else:
         hashh[(i, True)] = 0
+        hashh[(i, True)] += 1
 
-    if (j, True) in hashh:
+    if (j, True) in hashh and hashh[(j, True)] > 0:
         count += 1
         answer.append(count)
+        hashh[(j, True)]-=1
         continue
     else:
         hashh[(j, False)] = 0
+        hashh[(j, False)] += 1
     answer.append(count)
 print(answer)
