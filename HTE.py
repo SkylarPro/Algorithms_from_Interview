@@ -37,5 +37,5 @@ def rotate(matrix):
     matrix = reflect(matrix)
     return matrix
 
-for matrix, out in zip(matrixs,outs):
+for matrix, out in zip(matrixs, outs):
     assert rotate(matrix) == out
